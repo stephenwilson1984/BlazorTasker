@@ -1,0 +1,26 @@
+﻿@page "/tasker"
+
+<div class="d-flex align-items-center justify-content-center">
+    <div class="p-5 task">
+        <div class="p-2 text-center mb-3">
+            <img src="/img/Tasker_600.png" width="300" alt="Tasker"/>
+        </div>
+        <div>
+            <EditForm Model="item">
+                <DataAnnotationsValidator/>
+                <div class="d-flex flex-row gap-2">
+                    <InputText class="form-control" placeholder="Enter a task" @bind-Value="item.Name"/>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+                <div>
+                    <ValidationMessage For="() => item.Name"/>
+                </div>
+            </EditForm>
+        </div>
+        <hr/>
+    </div>
+</div>
+
+@code {
+    private TaskerItem item = new();
+}
